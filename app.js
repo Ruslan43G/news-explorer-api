@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -19,6 +20,9 @@ const signinSchema = require('./schemas/signinSchema');
 const { PORT = 3000 } = process.env;
 
 const app = express();
+
+app.use(cors());
+
 mongoose.connect('mongodb://localhost:27017/news', {
   useNewUrlParser: true,
   useCreateIndex: true,
