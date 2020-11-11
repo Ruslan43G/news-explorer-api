@@ -26,7 +26,7 @@ const articleSchema = mongoose.Schema({
     required: true,
     validate: {
       validator(v) {
-        return /^((http|https):\/\/)(www\.)?([a-zA-Z0-9\W]{1,})(#)?$/.test(v);
+        return /^((http|https):\/\/)(www\.)?([A-Za-z0-9.-]{1,256})\.[A-Za-z]{2,10}([-a-zA-Z0-9@:%_+.~#?&/=]{1,256})?$/.test(v);
       },
       message: 'Введена некорректная ссылка!',
     },
@@ -36,7 +36,7 @@ const articleSchema = mongoose.Schema({
     required: true,
     validate: {
       validator(v) {
-        return /^((http|https):\/\/)(www\.)?([a-zA-Z0-9\W]{1,})(#)?$/.test(v);
+        return /^((http|https):\/\/)(www\.)?([A-Za-z0-9.-]{1,256})\.[A-Za-z]{2,10}([-a-zA-Z0-9@:%_+.~#?&/=]{1,256})?$/.test(v);
       },
       message: 'Введена некорректная ссылка!',
     },
